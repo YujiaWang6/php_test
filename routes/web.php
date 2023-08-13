@@ -31,7 +31,7 @@ Route::get('/project/{project:slug}', function (Project $project) {
 })->where('project', '[A-z\-]+');
 
 Route::get('/console/logout', [ConsoleController::class, 'logout'])->middleware('auth');
-Route::get('/console/login', [ConsoleController::class, 'loginForm'])->middleware('guest');
+Route::get('/console/login', [ConsoleController::class, 'loginForm'])->middleware('guest')->name('login');
 Route::post('/console/login', [ConsoleController::class, 'login'])->middleware('guest');
 Route::get('/console/dashboard', [ConsoleController::class, 'dashboard'])->middleware('auth');
 
